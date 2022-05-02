@@ -23,8 +23,6 @@ public class Person {
     private String urlImage;
     
     
-    
-//    
 //    @OneToMany()
 //    private ArrayList<ExperienciaLaboral> experienciaLaborales;
 //    

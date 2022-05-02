@@ -7,7 +7,6 @@ package ar.com.yoprogramo.api.services;
 import ar.com.yoprogramo.api.models.Person;
 import ar.com.yoprogramo.api.repositories.PersonRepository;
 import java.util.ArrayList;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

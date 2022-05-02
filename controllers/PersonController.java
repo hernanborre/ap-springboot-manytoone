@@ -29,7 +29,6 @@ public class PersonController {
 //            IF unaPersona.EDAD < 18
 //                listaAuxPersonas.REMOVE
 //        } 
-//        
          return  personService.getAllPersons();
     }
 
