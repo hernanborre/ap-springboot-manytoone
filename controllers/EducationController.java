@@ -6,6 +6,8 @@ import ar.com.yoprogramo.api.services.EducationService;
 import ar.com.yoprogramo.api.services.PersonService;
 import java.util.ArrayList;
 import java.util.List;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -66,6 +68,11 @@ public class EducationController {
         Education education = educationService.getEducationByID(id);
         // .orElseThrow(() -> new ResourceNotFoundException("EducationId " + id + "not found"));
         education.setPerson(educationRequest.getPerson());
+        educationRequest.setId(education.getId());
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setSkipNullEnabled(true).setMatchingStrategy(MatchingStrategies.STRICT);
+        modelMapper.map(educationRequest, education);
+
         return new ResponseEntity<>(educationService.save(education), HttpStatus.OK);
     }
 
